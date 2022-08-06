@@ -3,12 +3,12 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 // const chalk = require('chalk')
-const mongoose = require('./services/mongoose')
+const mongoose = require('./src/services/mongoose')
 
-require('./configs/mongoose')
+require('./src/configs/mongoose')
 
 const app = express()
-const apiRest = require('./api/rest')
+const apiRest = require('./src/api/rest')
 
 const PORT = process.env.PORT || 3000
 
