@@ -23,6 +23,7 @@ app.use(apiRest)
 http.listen(PORT, () => {
     // console.log(chalk.blue.inverse.bold('Conectado al puerto ', PORT))
     console.log('Conectado al puerto: ', PORT)
+    // console.log(apiRest)
 })
 
 module.exports = app
