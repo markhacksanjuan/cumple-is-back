@@ -8,7 +8,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
 .then(connection => {
     console.log('Connected to MongoDB')
+    console.log(connection)
 })
 .catch(err => {
-    console.error('Error connecting to MongoDB: ', err)
+    
+    console.error('Error connecting to MongoDB: ')
+    console.error(err)
 })
