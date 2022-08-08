@@ -3,7 +3,7 @@ const passport = require('passport')
 const User = require('../../../models/user')
 
 module.exports.index = (req, res, next) => {
-    res.send('AUTH PAGE')
+    res.send('AUTH PAGE - INDEX')
 }
 
 module.exports.signup = async (req, res, next) => {

@@ -4,6 +4,7 @@ const passport = require('passport')
 const cors = require('cors')
 
 const apiRest = require('../api/rest')
+require('../services/auth')
 
 const app = express()
 
