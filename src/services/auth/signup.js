@@ -13,14 +13,13 @@ passport.use(
             passReqToCallback: true
         },
         async (req, name, password, done) => {
-            console.log(name)
-            console.log(password)
-            const userExists = User.exists({name})
+            // const userExists = User.exists({name})
+            const userExists = await User.exists({ name })
             console.log(userExists)
             if(userExists) return done(null, false, { message: 'El usuario ya existe' })
 
             const hash = await passwordManager.hash(password)
-            const user = await User.create({ email, password: hash})
+            const user = await User.create({ name, password: hash})
 
             done(null, user)
         }
