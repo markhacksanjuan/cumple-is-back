@@ -1,4 +1,5 @@
 const passport = require('passport')
+const User = require('../../../models/user')
 
 module.exports.index = (req, res, next) => {
     res.send('AUTH PAGE - INDEX')
@@ -13,7 +14,7 @@ module.exports.signup = async (req, res, next) => {
                 return
             }
             if(!user){
-                res.send(info)
+                res.status(500).send(info)
                 return
             }
             res.status(200).send({ message: info })
@@ -29,7 +30,7 @@ module.exports.login = async (req, res, next) => {
             return
         }
         if(!user){
-            res.send(info)
+            res.status(500).send(info)
             return
         }
         req.login(
@@ -44,4 +45,13 @@ module.exports.login = async (req, res, next) => {
             }
         )
     })(req, res, next)
+}
+module.exports.getUsers = async (req, res, next) => {
+    try{
+        const response = await User.find()
+        console.log(response)
+        res.status(200).send({ users: response })
+    }catch(err) {
+        res.status(500).send({ message: err.message })
+    }
 }
