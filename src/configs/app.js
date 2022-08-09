@@ -17,7 +17,7 @@ app.use(passport.initialize())
 app.use(cors())
 app.use(cors({
     origin: ['http://localhost:3000', 'https://cumple-isa.vercel.app'],
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Access-Control-Allow-Origin']
 }))
 app.use(corsMiddleware)
