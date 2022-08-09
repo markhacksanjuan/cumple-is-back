@@ -37,6 +37,8 @@ module.exports.signup = async (req, res, next) => {
 }
 
 module.exports.login = async (req, res, next) => {
+    console.log('login page')
+    console.log('starting passport login strategy')
     passport.authenticate('login', async (err, user, info) => {
         try {
             if(err){

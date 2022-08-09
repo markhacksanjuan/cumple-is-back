@@ -12,6 +12,7 @@ passport.use(
             passReqToCallback: true
         },
         async (req, name, password, done) => {
+            console.log('passport login strategy')
             const user = await User.findOne({ name })
             if(!user) return done(null, false, { message: 'Nombre o password incorrectos' })
 
