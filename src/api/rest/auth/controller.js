@@ -39,7 +39,7 @@ module.exports.signup = async (req, res, next) => {
 module.exports.login = async (req, res, next) => {
     console.log('login page')
     console.log('starting passport login strategy')
-    passport.authenticate('login', async (err, user, info) => {
+    passport.authenticate('login', (err, user, info) => {
         try {
             if(err){
                 res.status(500).send({ errorMessage: 'Something went wrong authentication user' })
@@ -63,5 +63,5 @@ module.exports.login = async (req, res, next) => {
         }catch(err) {
             next(err)
         }
-    })
+    })(req, res, next)
 }
