@@ -35,6 +35,8 @@ passport.use(
         },
         async (name, password, done) => {
             console.log('passport login strategy')
+            console.log(name)
+            console.log(password)
             try{
                 const user = await User.findOne({ name })
                 if(!user) return done(null, false, { message: 'Nombre o password incorrectos' })
@@ -45,6 +47,7 @@ passport.use(
                 return done(null, user, { message: 'Logged in successfully'})
 
             } catch(err) {
+                console.error('Error in login strategy')
                 console.error(err)
             }
         }
