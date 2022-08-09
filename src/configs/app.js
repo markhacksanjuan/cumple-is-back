@@ -24,4 +24,15 @@ app.use(cors({
 
 app.use(apiRest)
 
+app.use((req, res, next) => {
+    res.status(400)
+    res.send('NOT FOUND')
+})
+app.use((err, req, res, next) => {
+    if(!res.headersSent){
+        res.status(500)
+        res.send('ERROR')
+    }
+})
+
 module.exports = app
