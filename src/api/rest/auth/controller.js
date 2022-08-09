@@ -47,8 +47,9 @@ module.exports.login = async (req, res, next) => {
     })(req, res, next)
 }
 module.exports.getUsers = async (req, res, next) => {
+    console.log('get all users from database')
     try{
-        const response = await User.find()
+        const response = await User.find({})
         console.log(response)
         res.status(200).send({ users: response })
     }catch(err) {
