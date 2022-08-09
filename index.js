@@ -6,4 +6,5 @@ require('./src/configs/passport')
 
 app.listen(app.get('port'), () => {
     console.log('Conectado al puerto: ', app.get('port'))
+    console.log(process.env.MONGODB_URI)
 })
