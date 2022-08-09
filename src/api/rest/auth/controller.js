@@ -50,6 +50,7 @@ module.exports.getUsers = async (req, res, next) => {
     console.log('get all users from database')
     try{
         const response = await User.find({})
+        console.log('this is the response from db')
         console.log(response)
         res.status(200).send({ users: response })
     }catch(err) {
