@@ -20,7 +20,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Access-Control-Allow-Origin']
 }))
-app.use(corsMiddleware)
+// app.use(corsMiddleware)
 
 app.use(apiRest)
 
