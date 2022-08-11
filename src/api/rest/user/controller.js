@@ -4,7 +4,8 @@ module.exports.index = (req, res, next) => {
     res.send('USER PAGE - INDEX')
 }
 module.exports.fetchUser = async (req, res, next) => {
-    const { id } = req.body
+    console.log('fetch user page')
+    const { id } = req.params
     try{
         const user = await User.findById({ _id: id })
         res.status(200).send({ user })
