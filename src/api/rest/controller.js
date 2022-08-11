@@ -1,3 +1,3 @@
-module.exports.index = (req, res, next) => {
-    res.send('INDEX PAGE')
+module.exports.indexPage = (req, res, next) => {
+    res.status(200).send('INDEX PAGE')
 }
