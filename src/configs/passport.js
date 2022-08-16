@@ -18,13 +18,13 @@ passport.use(
             console.log(name)
             console.log(password)
             try{
-                const userExists = await User.exists({ name })
+                const userExists = await User.exists({ name: name.toLowerCase() })
                 console.log(userExists)
                 if(userExists) return done(null, false, { message: 'El usuario ya existe' })
     
                 const salt = await bcrypt.genSalt(10)
                 const hash = await bcrypt.hash(password, salt)
-                const user = await User.create({ name, password: hash})
+                const user = await User.create({ name: name.toLowerCase(), password: hash})
     
                 done(null, user, { message: 'User created successfully '})
             }catch(err) {
@@ -48,7 +48,7 @@ passport.use(
             console.log(password)
             try{
                 console.log('finding user by name...')
-                const user = await User.findOne({ name })
+                const user = await User.findOne({ name: name.toLowerCase() })
                 if(!user) return done(null, false, { message: 'Usuario no encontrado' })
     
                 const result = await bcrypt.compare(password, user.password)
